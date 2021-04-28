@@ -8,6 +8,7 @@
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -24,6 +25,14 @@
                         <input type="text" class="form-control" id="validasiNama" name="" placeholder="Nama sesuai KTP" required>
                         <div class="invalid-feedback">
                             Masukkan nama terlebih dahulu!
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="validasiLahir"><strong>Tanggal Lahir</strong></label>
+                        <input type="text" class="form-control datepicker" id="validasilahir" name="" placeholder="Tanggal lahir sesuai KTP"  required>
+                        <div class="invalid-feedback">
+                            Masukkan tanggal lahir terlebih dahulu!
                         </div>
                     </div>
                     <br>
@@ -51,6 +60,8 @@
     
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
 
     <script>
         'use strict';
@@ -69,6 +80,14 @@
           });
         }, false);
       
+
+        $(function(){
+  $(".datepicker").datepicker({
+      format: 'dd-mm-yyyy',
+      autoclose: true,
+      todayHighlight: true,
+  });
+ });
       </script>
 </body>
 
