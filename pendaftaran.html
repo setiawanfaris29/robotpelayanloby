@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>sebelum scan KTP</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+   
+    <div class="container">
+        <div class="container-fluid">
+            <h1 class="text-center" style="font-size: xx-large;margin-top: 60px;color: black;margin-bottom: 36px;">Masukkan Nomor Pendaftaran</h1>
+            
+            <div class="form-bg">
+                <form action="" class="needs-validation" novalidate>
+
+                    <div class="form-group">
+                        <label for="validasiNomor"><strong>Nomor Pendafataran</strong></label>
+                        <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" id="validasiNomor" name="" placeholder="Masukkan Nomor Pendaftaran" required>
+                        <div class="invalid-feedback">
+                            Masukkan nomor pendafataran terlebih dahulu!
+                        </div>
+                    </div>
+                    
+                    <button class="btn tmbl mt-5" type="submit">Daftar</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      
+
+        $(function(){
+  $(".datepicker").datepicker({
+      format: 'dd-mm-yyyy',
+      autoclose: true,
+      todayHighlight: true,
+  });
+ });
+      </script>
+</body>
+
+</html>
