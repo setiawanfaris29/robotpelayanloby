@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-datepicker.css"> -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
             <h1 class="text-center" style="font-size: xx-large;margin-top: 60px;color: black;margin-bottom: 36px;">Isi Form Terlebih Dahulu</h1>
             
             <div class="form-bg">
-                <form action="" class="needs-validation" novalidate>
+                <form action="" class="needs-validation" method="get" novalidate>
 
                     <div class="form-group">
                         <label for="validasiNama"><strong>Nama Lengkap</strong></label>
@@ -28,13 +28,104 @@
                         </div>
                     </div>
                     <br>
-                    <div class="form-group">
+
+                    <div class="row">
+                        <div class="col">
+                          
+                            <label for="validasiLahir"><strong>Tanggal</strong></label>
+                                <div class="input-group">
+                                <input name="validasiLahir" placeholder="01" id="validasiLahir" class="form-control"  onfocus="this.select()" type="number" max="31" required>
+                                <select style="width:18px;height:auto;line-height:20px;margin:0;padding:0;"  onchange="document.getElementById('validasiLahir').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                <option></option>
+                                <option >01</option>
+                                <option >02</option>
+                                <option >03</option>
+                                <option >04</option>
+                                <option >05</option>
+                                <option >06</option>
+                                <option >07</option>
+                                <option >08</option>
+                                <option >09</option>
+                                <option >10</option>
+                                <option >11</option>
+                                <option >12</option>
+                                <option >13</option>
+                                <option >14</option>
+                                <option >15</option>
+                                <option >16</option>
+                                <option >17</option>
+                                <option >18</option>
+                                <option >19</option>
+                                <option >20</option>
+                                <option >21</option>
+                                <option >22</option>
+                                <option >23</option>
+                                <option >24</option>
+                                <option >25</option>
+                                <option >26</option>
+                                <option >27</option>
+                                <option >28</option>
+                                <option >29</option>
+                                <option >30</option>
+                                <option >31</option>
+                             </select>
+                             <div class="invalid-feedback ">
+                                Masukkan tanggal lahir sesuai dengan KTP!
+                            </div>
+                        </div> 
+                        </div>
+
+                        <div class="col">
+                            <label for="validasiBulan"><strong>Bulan</strong></label>
+                            <div class="input-group">
+                                <input name="validasiBulan" placeholder="01" id="validasiBulan" class="form-control "  onfocus="this.select()" type="number" max="12" required>
+                                <select style="width:18px;height:auto;line-height:20px;margin:0;padding:0;"  onchange="document.getElementById('validasiBulan').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                <option></option>
+                                <option >01</option>
+                                <option >02</option>
+                                <option >03</option>
+                                <option >04</option>
+                                <option >05</option>
+                                <option >06</option>
+                                <option >07</option>
+                                <option >08</option>
+                                <option >09</option>
+                                <option >10</option>
+                                <option >11</option>
+                                <option >12</option>
+                             </select>
+                             <div class="invalid-feedback ">
+                                Masukkan bulan lahir sesuai dengan KTP!
+                            </div>
+                        </div> 
+                        </div>
+                        
+                        <div class="col">
+
+                            <label for="validasiTahun"><strong>Tahun</strong></label>
+
+                            <div class="input-group">
+                                <input name="validasiTahun" placeholder="1999" id="validasiTahun" class="form-control "  onfocus="this.select()" type="number" required>
+                                <select name="validasiTahun" style="width:18px;height:auto;line-height:20px;margin:0;padding:0;" id="dropdownYear" onchange="document.getElementById('validasiTahun').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                <option></option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Masukkan tahun lahir sesuai dengan KTP!
+                            </div>
+                        </div>
+
+                            <!-- <input type="number" class="form-control" id="validasiTahun" min="1000" name="" placeholder="1999"  required> -->
+                            
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group">
                         <label for="validasiLahir"><strong>Tanggal Lahir</strong></label>
                         <input type="date" class="form-control" id="validasilahir" name="" placeholder="Tanggal lahir sesuai KTP"  required>
                         <div class="invalid-feedback">
                             Masukkan tanggal lahir terlebih dahulu!
                         </div>
-                    </div>
+                    </div> -->
                     <br>
                     <div class="form-group">
                         <label for="validasiAlamat"><strong>Alamat</strong></label>
@@ -61,7 +152,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
+    <!-- <script src="js/bootstrap-datepicker.min.js"></script> -->
 
     <script>
         'use strict';
@@ -79,15 +170,54 @@
             }, false);
           });
         }, false);
-      
 
-        $(function(){
-  $(".datepicker").datepicker({
-      format: 'dd-mm-yyyy',
-      autoclose: true,
-      todayHighlight: true,
-  });
- });
+let dateDropdown = document.getElementById('dropdownYear');
+
+let currentYear = new Date().getFullYear();
+let earliestYear = 1970;
+
+while (currentYear >= earliestYear) {
+  let dateOption = document.createElement('option');
+  dateOption.text = currentYear;
+  dateOption.value = currentYear;
+  dateDropdown.add(dateOption);
+  currentYear -= 1;
+}
+
+// $('#dropdownYear').each(function() {
+
+// var year = (new Date()).getFullYear();
+// var current = year;
+// year -= 90;
+// for (var i = 0; i < 100; i++) {
+//   if ((year+i) == current)
+//     $(this).append('<option selected value="' + (year + i) + '">' + (year + i) + '</option>');
+//   else
+//     $(this).append('<option value="' + (year + i) + '">' + (year + i) + '</option>');
+// }
+
+// })
+      
+//         var currentYear = new Date().getFullYear();
+// var yearSelect = document.getElementById('dropdownYear');
+// for(var i = -2; i < 3; i++) {
+//     var isSelected = currentYear === currentYear - i
+//     yearSelect.options[yearSelect.options.length] = new Option(currentYear - i, currentYear - i, isSelected, isSelected);
+// }
+
+//         $(function(){
+//   $(".datepicker").datepicker({
+//       format: 'dd-mm-yyyy',
+//       autoclose: true,
+//       todayHighlight: true,
+//   });
+//  });
+
+//  $(function() {
+//             $( "#date" ).datepicker({dateFormat: 'yy'});
+//          });
+
+         
       </script>
 </body>
 
